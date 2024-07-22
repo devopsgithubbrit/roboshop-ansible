@@ -1,4 +1,4 @@
-- name: monggodb
+- name: mongodb
   hosts: mongodb
   become: yes
   tasks:
@@ -9,7 +9,7 @@
 
   - name: Install mongodb
     ansible.builtin.package:
-      name: mongodb-org
+      name: mongodb-org -y
       state: present
 
   - name: start and enable  
