@@ -10,7 +10,7 @@
   - name: Install mongodb
     ansible.builtin.package:
       name: mongodb-org
-      state: true
+      state: present
 
   - name: start and enable mongodb
     ansible.builtin.service:
