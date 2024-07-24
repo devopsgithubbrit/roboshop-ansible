@@ -1,0 +1,25 @@
+- name: mysql
+  hosts: mysql
+  become: yes
+  tasks:
+  - name: disabling mysql 8 version
+    ansible.bultin.command: dnf module disable mysql -y
+
+  - name: copy msql file
+    ansible.builtin.copy: 
+    src: mysql.repo
+    dest: /etc/yum.repos.d/mysql.repo
+
+  - name: install mysql server
+    ansible.bultin.dnf:
+      name: mysql-community-server -y
+      state: present
+
+  - name: start and enable mysql
+    ansible.builtin.service:
+      name: catalogue
+      state: restarted
+      enabled: yes
+
+  - name: setup root passsowrd
+    ansible.bultin.command: mysql_secure_installation --set-root-pass RoboShop@1
