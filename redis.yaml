@@ -12,7 +12,7 @@
     ansible.bultin.command: dnf module enable redis:remi-6.2 -y
 
   - name: install redis
-    ansible.bultin.dnf: 
+    ansible.builtin.dnf: 
       name: redis -y
       state: present
 
