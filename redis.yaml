@@ -4,9 +4,9 @@
   tasks:
   - name: install remi release
     ansible.bultin.dnf:
-    name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
-    state: present
-    disable_gpg_check: true
+      name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
+      state: present
+      disable_gpg_check: true
 
   - name: enable redis
     ansible.bultin.command: dnf module enable redis:remi-6.2 -y
