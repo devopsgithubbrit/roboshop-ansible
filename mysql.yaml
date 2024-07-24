@@ -5,7 +5,7 @@
   - name: disabling mysql 8 version
     ansible.bultin.command: dnf module disable mysql -y
 
-  - name: copy msql file
+  - name: copy mysql file
     ansible.builtin.copy: 
     src: mysql.repo
     dest: /etc/yum.repos.d/mysql.repo
@@ -17,7 +17,7 @@
 
   - name: start and enable mysql
     ansible.builtin.service:
-      name: catalogue
+      name: mysql
       state: restarted
       enabled: yes
 
