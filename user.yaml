@@ -60,7 +60,7 @@
       state: present
 
   - name: get the users count
-    ansible.builtin.command:  mongo --host mongodb.daws76s.online --quiet --eval 'db = db.getSiblingDB("users"); db.users.count()'
+    ansible.builtin.command:  mongo --host mongodb.chintu.cloud --quiet --eval 'db = db.getSiblingDB("users"); db.users.count()'
     register: user_count
 
   # - name: print the count
@@ -68,7 +68,7 @@
   #     msg: "product count: {{user_count}}"
 
   - name: load user data
-    ansible.builtin.command: mongo --host mongodb.daws76s.online < /app/schema/user.js
+    ansible.builtin.command: mongo --host mongodb.chintu.cloud < /app/schema/user.js
     when: user_count.stdout == "0" 
 
   - name: start and enable user
