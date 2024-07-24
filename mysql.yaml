@@ -3,7 +3,7 @@
   become: yes
   tasks:
   - name: disabling mysql 8 version
-    ansible.bultin.command: dnf module disable mysql -y
+    ansible.builtin.command: dnf module disable mysql -y
 
   - name: copy mysql file
     ansible.builtin.copy: 
@@ -11,7 +11,7 @@
     dest: /etc/yum.repos.d/mysql.repo
 
   - name: install mysql server
-    ansible.bultin.dnf:
+    ansible.builtin.dnf:
       name: mysql-community-server -y
       state: present
 
@@ -22,4 +22,4 @@
       enabled: yes
 
   - name: setup root passsowrd
-    ansible.bultin.command: mysql_secure_installation --set-root-pass RoboShop@1
+    ansible.builtin.command: mysql_secure_installation --set-root-pass RoboShop@1
